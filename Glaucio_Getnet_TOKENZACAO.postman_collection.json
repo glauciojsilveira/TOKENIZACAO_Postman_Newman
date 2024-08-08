@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "91810be3-f0f6-41de-a0a7-ae91e21fe2bd",
+		"name": "Glaucio_Getnet_TOKENZACAO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21732473",
+		"_collection_link": "https://glaucio-testes-2024.postman.co/workspace/Testes-de-Api~db6b2d1e-3976-4037-92ce-d30095841680/collection/21732473-91810be3-f0f6-41de-a0a7-ae91e21fe2bd?action=share&source=collection_link&creator=21732473"
+	},
+	"item": [
+		{
+			"name": "Gera Token de Acesso_client-01",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData).to.include.all.keys('access_token', 'token_type', 'expires_in', 'scope');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Access token is a non-empty string\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData.access_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Access token should not be empty\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Token type is a valid string value\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.token_type).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response data length is greater than zero\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"  \r",
+							"    pm.expect(Object.keys(responseData).length).to.be.greaterThan(0, \"Response data should not be empty\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "0acc450b-cb7a-4e94-9881-d674f9e31947",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"access_token\": \"0acc450b-cb7a-4e94-9881-d674f9e31947\",\r\n  \"token_type\": \"Bearer\",\r\n  \"expires_in\": \"3600\",\r\n  \"scope\": \"oob\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_BASE}}/v2/token:{{Client_Secret}}",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"v2",
+						"token:{{Client_Secret}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gera Token de Acesso_Client_Secre",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData).to.include.all.keys('access_token', 'token_type', 'expires_in', 'scope');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Access token is a non-empty string\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData.access_token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Access token should not be empty\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Token type is a valid string value\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.token_type).to.be.a('string');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response data length is greater than zero\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"  \r",
+							"    pm.expect(Object.keys(responseData).length).to.be.greaterThan(0, \"Response data should not be empty\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "0acc450b-cb7a-4e94-9881-d674f9e31947",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"access_token\": \"0acc450b-cb7a-4e94-9881-d674f9e31947\",\r\n  \"token_type\": \"Bearer\",\r\n  \"expires_in\": \"3600\",\r\n  \"scope\": \"oob\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL_BASE}}/v2/token:{{Client_ID}}",
+					"host": [
+						"{{URL_BASE}}"
+					],
+					"path": [
+						"v2",
+						"token:{{Client_ID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "{{URL_BASE}}",
+			"value": "https://api-homologacao.getnet.com.br/auth/oauth",
+			"type": "string"
+		}
+	]
+}
