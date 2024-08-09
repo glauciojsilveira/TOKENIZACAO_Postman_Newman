@@ -5,10 +5,6 @@
 - newman 
 - newman-reporter-html
 
-## Documentações
-- Analise Técnica: Analise/
-- Doc da API: [Consulte Swagger](https://serverest.dev/#/)
-
   ## Como instalar o ambiente
   - Primeiro: instale o node em seu computador [baixe aqui](https://nodejs.org/en/download)
 - Segundo: realize a instalação do newman de forma global [baixe aqui a dependencia](https://www.npmjs.com/package/newman)
